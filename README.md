@@ -1,4 +1,4 @@
-**Planet & Atmosphere Renderer Soviet Republic OpenGL**
+**Planet & Atmosphere Renderer _Soviet Republic_ OpenGL**
 
 This is a repository operating under IITB Seasons Of Code.
 
