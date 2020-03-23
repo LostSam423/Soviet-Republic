@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B760B88124296F0200B6978E /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B760B87F24296F0200B6978E /* triangle.cpp */; };
 		B7EB12EF242803F3005BF9DA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7EB12EE242803F3005BF9DA /* main.cpp */; };
 		B7FF101224295FE000023143 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FF101124295FE000023143 /* OpenGL.framework */; };
 		B7FF101424295FF900023143 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FF101324295FF900023143 /* libglfw.3.3.dylib */; };
@@ -26,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B760B87F24296F0200B6978E /* triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = triangle.cpp; path = "OpenGL Begin/triangle.cpp"; sourceTree = "<group>"; };
 		B7EB12EB242803F3005BF9DA /* OpenGL Begin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "OpenGL Begin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7EB12EE242803F3005BF9DA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B7FF101124295FE000023143 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -50,6 +52,7 @@
 		B7EB12E2242803F3005BF9DA = {
 			isa = PBXGroup;
 			children = (
+				B760B87F24296F0200B6978E /* triangle.cpp */,
 				B7EB12ED242803F3005BF9DA /* OpenGL Begin */,
 				B7EB12EC242803F3005BF9DA /* Products */,
 				B7FF101024295FE000023143 /* Frameworks */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7EB12EF242803F3005BF9DA /* main.cpp in Sources */,
+				B760B88124296F0200B6978E /* triangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
