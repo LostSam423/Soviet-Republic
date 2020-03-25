@@ -28,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		B72D0A7D242AAA3B00A4D017 /* Multitriangles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Multitriangles.cpp; path = "OpenGL Begin/Multitriangles.cpp"; sourceTree = "<group>"; };
+		B761916D242BA89C002578E6 /* core.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = core.vs; sourceTree = "<group>"; };
 		B7EB12EB242803F3005BF9DA /* OpenGL Begin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "OpenGL Begin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7EB12EE242803F3005BF9DA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B7FF101124295FE000023143 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -71,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				B7EB12EE242803F3005BF9DA /* main.cpp */,
+				B761916D242BA89C002578E6 /* core.vs */,
 			);
 			path = "OpenGL Begin";
 			sourceTree = "<group>";

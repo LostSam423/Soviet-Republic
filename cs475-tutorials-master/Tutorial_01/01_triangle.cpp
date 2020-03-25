@@ -1,14 +1,31 @@
 #include "gl_framework.hpp"
 #include "shader_util.hpp"
-
+#include <cmath>
 float points[] = {
-    0.0f,  0.5f,  0.0f,
-    0.5f, -0.5f,  0.0f,
-    -0.5f, -0.5f,  0.0f
+     -0.2f, 0.6f,  0.0f,
+        -0.2f, 0.4f, 0.0f,
+        -0.2f, -0.5f, 0.0f,
+        0.0f, -0.5f, 0.0f,  //3
+        0.0f, 0.0f , 0.0f,  //4
+        0.4f, 0.0f, 0.0f,   //5
+        0.4f, 0.2f, 0.0f,//6
+        0.0f,0.2f,0.0f,//7
+        0.0f, 0.4f, 0.0f,//8
+        0.6f, 0.4f, 0.0f,//9
+        0.6f,0.6f,0.0f
   };
+  GLuint indices[] =
+    {
+        0, 1, 10,
+        10, 9, 1,
+        1, 2, 3,
+        1, 3, 8,
+        4, 5, 6,
+        6, 4, 7,
+    };
 
 GLuint shaderProgram;
-GLuint vbo, vao;
+GLuint vbo, vao, ebo;
 
 void initShadersGL(void)
 {
@@ -30,7 +47,7 @@ void initVertexBufferGL(void)
   //Set it as the current buffer to be used by binding it
   glBindBuffer (GL_ARRAY_BUFFER, vbo);
   //Copy the points into the current buffer - 9 float values, start pointer and static data
-  glBufferData (GL_ARRAY_BUFFER, 9 * sizeof (float), points, GL_STATIC_DRAW);
+  glBufferData (GL_ARRAY_BUFFER, sizeof (points), points, GL_STATIC_DRAW);
 
   //Ask GL for a Vertex Attribute Object (vao)
   glGenVertexArrays (1, &vao);
@@ -43,16 +60,41 @@ void initVertexBufferGL(void)
   glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 }
 
+void initElementaryBufferGL(void)
+{
+  glGenBuffers(1, &ebo);
+
+  glBindBuffer (GL_ELEMENT_ARRAY_BUFFER, ebo);
+
+  glBufferData (GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+}
+
+void colorfixer(){
+  float timevalue = glfwGetTime();
+  float rval = abs(sin(timevalue)/2.0f) + 0.5f;
+  float gval = (cos(timevalue)/2.0f) + 0.5f;
+  int vertexColorLocation= glGetUniformLocation(shaderProgram, "OurColor");
+  glUniform4f(vertexColorLocation, rval, gval, 0.0f, 1.0f);
+}
+
+void glDeleteBuffer(void){
+  glDeleteVertexArrays( 1, &vao);
+  glDeleteBuffers(1, &vbo);
+  glDeleteBuffers( 1, &ebo);
+}
+
 void renderGL(void)
 {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   glUseProgram(shaderProgram);
 
+  colorfixer();
   glBindVertexArray (vao);
 
   // Draw points 0-3 from the currently bound VAO with current in-use shader
-  glDrawArrays(GL_TRIANGLES, 0, 3);
+  glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
 }
 
 int main(int argc, char** argv)
@@ -114,7 +156,7 @@ int main(int argc, char** argv)
   csX75::initGL();
   initShadersGL();
   initVertexBufferGL();
-
+  initElementaryBufferGL();
   // Loop until the user closes the window
   while (glfwWindowShouldClose(window) == 0)
     {
@@ -128,6 +170,7 @@ int main(int argc, char** argv)
       // Poll for and process events
       glfwPollEvents();
     }
+  glDeleteBuffer();
   
   glfwTerminate();
   return 0;
