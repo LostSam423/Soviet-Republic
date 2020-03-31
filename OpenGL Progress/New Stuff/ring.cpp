@@ -82,7 +82,7 @@ int main()
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        txt->use();
+        txt->use(0);
         shdr->use();
 
         glBindVertexArray( VAO );

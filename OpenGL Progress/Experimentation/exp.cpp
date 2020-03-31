@@ -15,7 +15,7 @@ void processInput(GLFWwindow *window);
 
 // settings
 const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_HEIGHT = 800;
 int main()
 {
     // glfw: initialize and configure
@@ -42,27 +42,15 @@ int main()
     
     GLfloat vertices[] =
     {
-        -0.2f, 0.6f,  0.0f, 1.0, 0.0, 1.0,  0.4f, 0.8f,
-        -0.2f, 0.4f, 0.0f,  1.0, 0.0, 0.0,  0.4f, 0.7f,
-        -0.2f,-0.5f, 0.0f,  0.0, 1.0, 1.0,  0.4f, 0.25f,
-        0.0f, -0.5f, 0.0f,  1.0, 0.0, 1.0,  0.5f, 0.25f,//3
-        0.0f, 0.0f , 0.0f,  0.0, 1.0, 0.0,  0.5f, 0.5f, //4
-        0.4f, 0.0f, 0.0f,   0.0, 0.0, 1.0,  0.7f, 0.5f, //5
-        0.4f, 0.2f, 0.0f,   0.0, 1.0, 1.0,  0.7f, 0.6f,//6
-        0.0f, 0.2f, 0.0f,   1.0, 0.0, 0.0,  0.5f, 0.6f, //7
-        0.0f, 0.4f, 0.0f,   0.0, 0.0, 1.0,  0.5f, 0.7f, //8
-        0.6f, 0.4f, 0.0f,   0.0, 1.0, 0.0,  0.8f, 0.7f,//9
-        0.6f,0.6f,0.0f,     1.0, 1.0, 0.0,  0.8f, 0.8f 
-
+        -0.5f, -0.5f, 0.0f,     0.2f, 0.3f, 0.3f,    0.0f, 0.0f,
+        0.5f, -0.5f, 0.0f,      0.2f, 0.3f, 0.3f,    1.0f, 0.0f,
+        -0.5f, 0.5f, 0.0f,      0.2f, 0.3f, 0.3f,    0.0f, 1.0f,
+        0.5f, 0.5f, 0.0f,       0.2f, 0.3f, 0.3f,    1.0f, 1.0f
     };
     GLuint indices[] =
     {
-        0, 1, 10,
-        10, 9, 1,
-        1, 2, 3,
-        1, 3, 8,
-        4, 5, 6,
-        6, 4, 7,
+        0, 1, 2,
+        1, 2, 3
     };
     
     Shader *shdr = new Shader("shaders/shad.vs","shaders/shad.fs");
@@ -80,9 +68,8 @@ int main()
     glEnableVertexAttribArray( 0 );
     glVertexAttribPointer( 1, 3, GL_FLOAT, GL_FALSE, 8* sizeof( GLfloat ), (GLvoid * ) (3* sizeof(float)) );
     glEnableVertexAttribArray(1);
-    glVertexAttribPointer( 2, 2, GL_FLOAT, GL_FALSE, 8* sizeof( GLfloat ), (GLvoid * ) (6* sizeof(float)) );
+    glVertexAttribPointer( 1, 2, GL_FLOAT, GL_FALSE, 8* sizeof( GLfloat ), (GLvoid * ) (6* sizeof(float)) );
     glEnableVertexAttribArray(2);
-    glBindBuffer( GL_ARRAY_BUFFER, 1);
     
     glGenBuffers( 1, &EBO);
     glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, EBO );
@@ -100,10 +87,10 @@ int main()
         glClearColor(0.2f, 0.5f, 0.5f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        txt->use(0);
+        txt->use();
         shdr->use();
         glBindVertexArray( VAO );
-        glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
         glfwSwapBuffers(window);

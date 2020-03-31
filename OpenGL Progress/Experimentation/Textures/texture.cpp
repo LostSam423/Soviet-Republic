@@ -28,8 +28,8 @@
     	stbi_image_free(data);
 	}
 
-	void Texture::use(int i)
+	void Texture::use()
 	{
-		glActiveTexture(GL_TEXTURE0+i);
+		glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture);	
 	}
