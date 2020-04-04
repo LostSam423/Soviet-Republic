@@ -14,6 +14,7 @@
 #include "utility/glm/gtc/matrix_transform.hpp"
 #include "utility/glm/gtc/type_ptr.hpp"
 
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
 
@@ -24,7 +25,6 @@ const unsigned int SCR_HEIGHT = 800;
 glm::mat4 trans = glm::mat4(1.0f);
 trans=glm::translate(trans, glm::vec3(-0.5f, 0.5f, 0.0f));
 trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
-
 
 int main()
 {
