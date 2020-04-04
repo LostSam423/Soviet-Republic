@@ -17,7 +17,8 @@
     	unsigned char *data = stbi_load(Filename, &width, &height, &nrChannels, 0);
     	if (data)
    	 	{	
-        	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         	glGenerateMipmap(GL_TEXTURE_2D);
     	}
     	else
@@ -28,8 +29,8 @@
     	stbi_image_free(data);
 	}
 
-	void Texture::use()
+	void Texture::use(int i)
 	{
-		glActiveTexture(GL_TEXTURE0);
+		glActiveTexture(GL_TEXTURE0+i);
         glBindTexture(GL_TEXTURE_2D, texture);	
 	}

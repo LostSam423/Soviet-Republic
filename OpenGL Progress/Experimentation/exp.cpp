@@ -42,10 +42,10 @@ int main()
     
     GLfloat vertices[] =
     {
-        -0.5f, -0.5f, 0.0f,     0.2f, 0.3f, 0.3f,    0.0f, 0.0f,
-        0.5f, -0.5f, 0.0f,      0.2f, 0.3f, 0.3f,    1.0f, 0.0f,
-        -0.5f, 0.5f, 0.0f,      0.2f, 0.3f, 0.3f,    0.0f, 1.0f,
-        0.5f, 0.5f, 0.0f,       0.2f, 0.3f, 0.3f,    1.0f, 1.0f
+        -0.5f, -0.5f, 0.0f,     0.0f, 0.4f, 0.0f,    0.0f, 0.0f,
+        0.5f, -0.5f, 0.0f,      0.0f, 0.0f, 0.4f,    1.0f, 0.0f,
+        -0.5f, 0.5f, 0.0f,      0.4f, 0.0f, 0.0f,    0.0f, 1.0f,
+        0.5f, 0.5f, 0.0f,       0.4f, 0.4f, 0.0f,    1.0f, 1.0f
     };
     GLuint indices[] =
     {
@@ -54,7 +54,8 @@ int main()
     };
     
     Shader *shdr = new Shader("shaders/shad.vs","shaders/shad.fs");
-    Texture *txt = new Texture("Images/F.jpg");
+    Texture *txt1 = new Texture("Images/ring2.jpg");
+    Texture *txt2 = new Texture("Images/diskm.jpg");
     GLuint VBO, VAO, EBO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers( 1, &VBO );
@@ -68,7 +69,7 @@ int main()
     glEnableVertexAttribArray( 0 );
     glVertexAttribPointer( 1, 3, GL_FLOAT, GL_FALSE, 8* sizeof( GLfloat ), (GLvoid * ) (3* sizeof(float)) );
     glEnableVertexAttribArray(1);
-    glVertexAttribPointer( 1, 2, GL_FLOAT, GL_FALSE, 8* sizeof( GLfloat ), (GLvoid * ) (6* sizeof(float)) );
+    glVertexAttribPointer( 2, 2, GL_FLOAT, GL_FALSE, 8* sizeof( GLfloat ), (GLvoid * ) (6* sizeof(float)) );
     glEnableVertexAttribArray(2);
     
     glGenBuffers( 1, &EBO);
@@ -76,6 +77,12 @@ int main()
     glBufferData( GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
     glBindVertexArray( 0 );
+
+
+    shdr->use();
+    shdr->setInt("txt1",0);
+    shdr->setInt("txt2",1);
+
     while (!glfwWindowShouldClose(window))
     {
         // input
@@ -84,10 +91,13 @@ int main()
 
         // render
         // ------
-        glClearColor(0.2f, 0.5f, 0.5f, 1.0f);
+        glClearColor(0.0f, 0.5f, 0.5f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        
-        txt->use();
+        GLfloat time = glfwGetTime();
+        GLfloat value = abs(sin(time));
+        shdr->setFloat("change", value);
+        txt1->use(0);
+        txt2->use(1);
         shdr->use();
         glBindVertexArray( VAO );
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

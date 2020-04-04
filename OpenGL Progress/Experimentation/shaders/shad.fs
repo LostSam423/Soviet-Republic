@@ -6,9 +6,10 @@ in vec2 Texcoord;
 
 out vec4 frag_colour;
 
-uniform sampler2D ourTexture;
-
+uniform sampler2D txt1;
+uniform sampler2D txt2;
+uniform float change;
 void main ()
 {
-  frag_colour = vec4(aColor,0.0 );
+  frag_colour = mix(texture(txt1, Texcoord), texture(txt2, Texcoord), change);
 }

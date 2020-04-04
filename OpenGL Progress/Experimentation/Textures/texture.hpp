@@ -17,7 +17,7 @@ class Texture{
 		int width, height, nrChannels;
 		Texture( const char *Filename);
 
-		void use();
+		void use(int i=0);
 
 };
 #endif
