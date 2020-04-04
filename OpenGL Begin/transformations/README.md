@@ -31,11 +31,11 @@ The w coordinate is also called homogeneous coordinate. Helps in translation. We
 
 Rotation matrices can be multipolied in various forms for rotation along respective axes.
 
-![rotation forms](https://ibb.co/Y76ddbT)
+![rotation forms](https://i.ibb.co/3ywFFkY/Screenshot-2020-04-04-at-2-01-19-AM.png)
 
 If we use an order to rotate first by x, y and z, then we face a _gimbal lock_ situation. Hence we use the following matrix, where (Rx, Ry, Rz) is an arbitrary unit vector.
 
-![](https://ibb.co/87rgJ47)
+![](https://i.ibb.co/5RrhdxR/Screenshot-2020-04-04-at-2-09-01-AM.png)
 
 ### Combining Matrices
 
