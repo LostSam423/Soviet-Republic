@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../../soc-assignment-1-LostSam423/OpenGL-code/Solution-1/shaders/shad.fs">
+   </FileRef>
+   <FileRef
+      location = "group:../../soc-assignment-1-LostSam423/OpenGL-code/Solution-1/shaders/shad.vs">
+   </FileRef>
+   <FileRef
+      location = "self:OpenGL Progress.xcodeproj">
+   </FileRef>
+</Workspace>
