@@ -121,8 +121,6 @@ int main()
   glm::vec3(-1.3f,  1.0f, -1.5f)
     
 };
-    
-    
 
     Shader *shdr = new Shader("shaders/shad2.vs","shaders/shad.fs");
     Texture *txt1 = new Texture("Images/index.jpg");
