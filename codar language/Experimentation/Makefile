@@ -12,8 +12,8 @@ BIN4=bin/cameraexp
 SRCS1=exp.cpp utility/readfile.cpp utility/shader.cpp  Textures/texture.cpp
 SRCS2=transform.cpp utility/readfile.cpp utility/shader.cpp  Textures/texture.cpp
 SRCS3=into3d.cpp utility/readfile.cpp utility/shader.cpp  Textures/texture.cpp
-SRCS4=cameraexp.cpp utility/readfile.cpp utility/shader.cpp  Textures/texture.cpp
-INCLUDES=utility/readfile.hpp utility/shader.hpp Textures/texture.hpp
+SRCS4=cameraexp.cpp utility/readfile.cpp utility/shader.cpp utility/camera.cpp  Textures/texture.cpp
+INCLUDES=utility/readfile.hpp utility/shader.hpp utility/camera.hpp Textures/texture.hpp
 
 all: $(BIN1) $(BIN2) $(BIN3) $(BIN4)
 $(BIN1): $(SRCS1) $(INCLUDES)
