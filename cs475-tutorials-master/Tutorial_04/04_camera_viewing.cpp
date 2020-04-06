@@ -211,10 +211,10 @@ void renderGL(void)
   glDrawArrays(GL_TRIANGLES, 0, num_vertices);
   
   // Draw plane
-  modelview_matrix = view_matrix;
-  glUniformMatrix4fv(uModelViewMatrix, 1, GL_FALSE, glm::value_ptr(modelview_matrix));
-  glBindVertexArray (vao[1]);
-  glDrawArrays(GL_TRIANGLES, 0, 6);
+  // modelview_matrix = view_matrix;
+  // glUniformMatrix4fv(uModelViewMatrix, 1, GL_FALSE, glm::value_ptr(modelview_matrix));
+  // glBindVertexArray (vao[1]);
+  // glDrawArrays(GL_TRIANGLES, 0, 6);
 
 }
 
