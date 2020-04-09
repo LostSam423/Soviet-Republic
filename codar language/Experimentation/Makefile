@@ -13,6 +13,7 @@ BIN5=bin/cubemaptest
 BIN6=bin/colors
 BIN7=bin/lightemup
 BIN8=bin/materialistic
+BIN9=bin/mapthelights
 SRCS1=exp.cpp utility/readfile.cpp utility/shader.cpp  Textures/texture.cpp
 SRCS2=transform.cpp utility/readfile.cpp utility/shader.cpp  Textures/texture.cpp
 SRCS3=into3d.cpp utility/readfile.cpp utility/shader.cpp  Textures/texture.cpp
@@ -21,9 +22,10 @@ SRCS5=cubemaptest.cpp utility/readfile.cpp utility/shader.cpp utility/camera.cpp
 SRCS6=colors.cpp utility/readfile.cpp utility/shader.cpp utility/camera.cpp  Textures/texture.cpp
 SRCS7=lightemup.cpp utility/readfile.cpp utility/shader.cpp utility/camera.cpp  Textures/texture.cpp
 SRCS8=materialistic.cpp utility/readfile.cpp utility/shader.cpp utility/camera.cpp  Textures/texture.cpp
+SRCS9=mapthelights.cpp utility/readfile.cpp utility/shader.cpp utility/camera.cpp  Textures/texture.cpp
 INCLUDES=utility/readfile.hpp utility/shader.hpp utility/camera.hpp Textures/texture.hpp
 
-all: $(BIN1) $(BIN2) $(BIN3) $(BIN4) $(BIN5) $(BIN6) $(BIN7) $(BIN8)
+all: $(BIN1) $(BIN2) $(BIN3) $(BIN4) $(BIN5) $(BIN6) $(BIN7) $(BIN8) $(BIN9)
 $(BIN1): $(SRCS1) $(INCLUDES)
 	g++ $(CPPFLAGS) $(SRCS1) -o $(BIN1) $(LDFLAGS) $(LIBS)
 $(BIN2): $(SRCS2) $(INCLUDES)
@@ -41,5 +43,7 @@ $(BIN7): $(SRCS7) $(INCLUDES)
 	g++ $(CPPFLAGS) $(SRCS7) -o $(BIN7) $(LDFLAGS) $(LIBS)
 $(BIN8): $(SRCS8) $(INCLUDES)
 	g++ $(CPPFLAGS) $(SRCS8) -o $(BIN8) $(LDFLAGS) $(LIBS)
+$(BIN9): $(SRCS9) $(INCLUDES)
+	g++ $(CPPFLAGS) $(SRCS9) -o $(BIN9) $(LDFLAGS) $(LIBS)
 clean:
-	rm -f *~ *.o $(BIN1) $(BIN2) $(BIN3) $(BIN4) $(BIN5) $(BIN6) $(BIN7)
+	rm -f *~ *.o $(BIN1) $(BIN2) $(BIN3) $(BIN4) $(BIN5) $(BIN6) $(BIN7) $(BIN8) $(BIN9)
