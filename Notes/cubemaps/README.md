@@ -23,5 +23,3 @@ Large cube that gives the feeling of an environment. Hence, new vao, vbo and fre
 As the cube is centred at origin we can use the position vector as texture coordinate too. We would also need new shaders too.
 
 To centre the skybox around the pllayer, we remove the translation part of the matrix, so skybox wont come closer. This be done by taking the 3x3 matrix part from view matrix. and then recaling it to 4x4 matrix.
-
-
