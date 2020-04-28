@@ -17,7 +17,7 @@ SRCS3=spotlight.cpp utility/readfile.cpp utility/shader.cpp utility/camera.cpp  
 SRCS4=multilight.cpp utility/readfile.cpp utility/shader.cpp utility/camera.cpp  Textures/texture.cpp
 SRCS5=blinn.cpp utility/readfile.cpp utility/shader.cpp utility/camera.cpp  Textures/texture.cpp
 SRCS6=statement.cpp utility/readfile.cpp utility/shader.cpp utility/camera.cpp  Textures/texture.cpp utility/skybox.cpp
-INCLUDES=utility/readfile.hpp utility/shader.hpp utility/camera.hpp Textures/texture.hpp utility/skybox.hpp
+INCLUDES=utility/readfile.hpp utility/shader.hpp utility/camera.hpp Textures/texture.hpp utility/skybox.hpp utility/cube.hpp
 
 all: $(BIN1) $(BIN2) $(BIN3) $(BIN4) $(BIN5) $(BIN6)
 $(BIN1): $(SRCS1) $(INCLUDES)

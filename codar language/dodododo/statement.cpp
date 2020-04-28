@@ -11,6 +11,7 @@
 #include "Textures/texture.hpp"
 #include "utility/camera.hpp"
 #include "utility/skybox.hpp"
+#include "objects/cube.hpp"
 
 #include "utility/glm/glm/glm.hpp"
 #include "utility/glm/glm/gtc/matrix_transform.hpp"
@@ -177,34 +178,38 @@ int main()
     Texture *txt1 = new Texture("Images/brickwall4.jpg");
     Texture *txt2 = new Texture("Images/brickwallnorm.jpg");
 
-    GLuint VBO, contVAO;
-    glGenVertexArrays(1, &contVAO);
-    glGenBuffers( 1, &VBO );
+    Cube cube(true, 10);                                                        
+    // GLuint VBO, contVAO;
+    // glGenVertexArrays(1, &contVAO);
+    // glGenBuffers( 1, &VBO );
 
-    glBindVertexArray( contVAO );
+    // glBindVertexArray( contVAO );
     
-    glBindBuffer( GL_ARRAY_BUFFER, VBO );
-    glBufferData( GL_ARRAY_BUFFER, sizeof( totvertices ), totvertices, GL_STATIC_DRAW );
-    glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, 14* sizeof( GLfloat ), (GLvoid * ) 0 );
-    glEnableVertexAttribArray( 0 );
-    glVertexAttribPointer( 1, 3, GL_FLOAT, GL_FALSE, 14* sizeof( GLfloat ), (GLvoid * ) (3* sizeof( GLfloat )));
-    glEnableVertexAttribArray( 1 );
-    glVertexAttribPointer( 2, 2, GL_FLOAT, GL_FALSE, 14* sizeof( GLfloat ), (GLvoid * ) (6* sizeof( GLfloat )));
-    glEnableVertexAttribArray( 2 );
-    glVertexAttribPointer( 3, 3, GL_FLOAT, GL_FALSE, 14* sizeof( GLfloat ), (GLvoid * ) (8* sizeof( GLfloat )));
-    glEnableVertexAttribArray( 3 );
-    glVertexAttribPointer( 4, 3, GL_FLOAT, GL_FALSE, 14* sizeof( GLfloat ), (GLvoid * ) (11* sizeof( GLfloat )));
-    glEnableVertexAttribArray( 4 );
+    // glBindBuffer( GL_ARRAY_BUFFER, VBO );
+    // glBufferData( GL_ARRAY_BUFFER, sizeof( totvertices ), totvertices, GL_STATIC_DRAW );
+    // glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, 14* sizeof( GLfloat ), (GLvoid * ) 0 );
+    // glEnableVertexAttribArray( 0 );
+    // glVertexAttribPointer( 1, 3, GL_FLOAT, GL_FALSE, 14* sizeof( GLfloat ), (GLvoid * ) (3* sizeof( GLfloat )));
+    // glEnableVertexAttribArray( 1 );
+    // glVertexAttribPointer( 2, 2, GL_FLOAT, GL_FALSE, 14* sizeof( GLfloat ), (GLvoid * ) (6* sizeof( GLfloat )));
+    // glEnableVertexAttribArray( 2 );
+    // glVertexAttribPointer( 3, 3, GL_FLOAT, GL_FALSE, 14* sizeof( GLfloat ), (GLvoid * ) (8* sizeof( GLfloat )));
+    // glEnableVertexAttribArray( 3 );
+    // glVertexAttribPointer( 4, 3, GL_FLOAT, GL_FALSE, 14* sizeof( GLfloat ), (GLvoid * ) (11* sizeof( GLfloat )));
+    // glEnableVertexAttribArray( 4 );
 
-    glBindBuffer( GL_ARRAY_BUFFER, 0 );
-    glBindVertexArray(0);
+    // glBindBuffer( GL_ARRAY_BUFFER, 0 );
+    // glBindVertexArray(0);
 
     GLuint lightsrcVAO;
     glGenVertexArrays(1, &lightsrcVAO);
 
     glBindVertexArray( lightsrcVAO );
 
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    // glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+    glBindBuffer( GL_ARRAY_BUFFER, VBO );
+    glBufferData( GL_ARRAY_BUFFER, sizeof( totvertices ), totvertices, GL_STATIC_DRAW );
     glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, 14* sizeof( GLfloat ), (GLvoid * ) 0 );
     glEnableVertexAttribArray( 0 );
 

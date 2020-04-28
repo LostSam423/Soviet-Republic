@@ -180,7 +180,7 @@ void initBuffersGL(void)
   glBufferData (GL_ARRAY_BUFFER, sizeof (v_positions) + sizeof(v_colors) + sizeof(v_normals), NULL, GL_STATIC_DRAW);
   glBufferSubData( GL_ARRAY_BUFFER, 0, sizeof(v_positions), v_positions );
   glBufferSubData( GL_ARRAY_BUFFER, sizeof(v_positions), sizeof(v_colors), v_colors );
-  glBufferSubData( GL_ARRAY_BUFFER, sizeof(v_colors)+sizeof(v_positions), sizeof(v_normals), v_normals );
+  glBufferSubData( GL_ARRAY_BUFFER, sizeof(v_colors)+ sizeof(v_positions), sizeof(v_normals), v_normals );
   // set up vertex array
 
   glEnableVertexAttribArray( vPosition );
